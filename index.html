@@ -1,0 +1,42 @@
+<html>
+  <head>
+  <title>Simple To-Do Application PWA</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body ng-app="app">
+    <div ng-controller="MainController">
+    <!--    navbar starts -->
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Simple ToDo Application PWA</a>
+        </div>
+      </div>
+    </nav>
+
+    <!--    navbar ends   -->
+    <div class="container">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <h1>To Do AngularJS PWA</h1>
+          <ul class="list-group">
+            <li class="list-group-item" ng-repeat="listItem in list track by $index">
+              {{listItem}}
+            <span class="pull-right" ng-click="remove($index)">X</span>
+            </li>
+          </ul>
+          <div class="input-group">
+            <input type="text" class="form-control input-group-lg" placeholder="Enter the task" ng-model="newItem">
+            <span class="input-group-addon" ng-click="addToDo()">Add Task</span>
+          </div>
+        </div>
+    </div>
+    <footer class="footer">
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.11/ngStorage.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/registerSW.js"></script>
+    </div>
+  </body>
+</html>
