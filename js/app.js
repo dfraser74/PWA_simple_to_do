@@ -1,4 +1,4 @@
-var app = angular.module('app',['ngStorage']);
+var app = angular.module('app',['ngStorage','ngMaterial']);
 
 app.controller('MainController',['$scope','$localStorage',function($scope, $localStorage){
   $scope.list = [];

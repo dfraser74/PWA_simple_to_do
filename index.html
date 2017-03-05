@@ -1,40 +1,38 @@
 <html>
   <head>
   <title>Simple To-Do Application PWA</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Angular Material style sheet -->
+  <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="manifest" href="manifest.json">
   </head>
-  <body ng-app="app">
+  <body ng-app="app" ng-cloak>
     <div ng-controller="MainController">
-    <!--    navbar starts -->
-    <nav class="navbar navbar-inverse">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="#">Simple ToDo Application PWA</a>
-        </div>
-      </div>
-    </nav>
-
-    <!--    navbar ends   -->
-    <div class="container">
-        <div class="col-md-12 col-sm-12 col-xs-12">
-          <h1>To Do AngularJS PWA</h1>
-          <ul class="list-group">
-            <li class="list-group-item" ng-repeat="listItem in list track by $index">
-              {{listItem}}
-            <span class="pull-right" ng-click="remove($index)">X</span>
-            </li>
-          </ul>
-          <div class="input-group">
-            <input type="text" class="form-control input-group-lg" placeholder="Enter the task" ng-model="newItem">
-            <span class="input-group-addon" ng-click="addToDo()">Add Task</span>
+    <md-toolbar class="md-theme-indigo" layout="row">
+        <h1 class="md-toolbar-tools">AngularJS ToDo PWA</h1>
+    </md-toolbar>
+     <md-content layout-align="center center" flex="100">
+      <md-list flex>
+        <md-list-item class="md-3-line" ng-repeat="listItem in list track by $index">
+          <div class="md-list-item-text listitem" layout="column">
+            <h3> {{listItem}}             
+              <span class="cross" ng-click="remove($index)">X</span>
+            </h3>
           </div>
-        </div>
-    </div>
-    <footer class="footer">
-    </footer>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
+        </md-list-item>
+        <md-input-container class="md-block">
+            <label>Add ToDo Item</label>
+            <textarea ng-model="newItem" md-maxlength="150" rows="2" md-select-on-focus></textarea>
+          </md-input-container>
+        <md-button  class="md-primary" type="submit" ng-click="addToDo()">Add Task</md-button>
+     </md-content>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+    <!-- Angular Material Library -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.11/ngStorage.min.js"></script>
     <script src="js/app.js"></script>
     <script src="js/registerSW.js"></script>
